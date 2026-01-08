@@ -18,12 +18,12 @@
                 <?= csrf_field() ?>
 
                 <div class="mb-3">
-                    <label class="form-label">Email address</label>
+                    <label class="form-label">User Name</label>
                     <div class="input-group">
                         <span class="input-group-text bg-white">
                             <i class="bi bi-envelope-fill"></i>
                         </span>
-                        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter your email" required>
                     </div>
                 </div>
 
@@ -33,8 +33,8 @@
                         <span class="input-group-text bg-white">
                             <i class="bi bi-lock-fill"></i>
                         </span>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
-                        <span class="input-group-text bg-white" style="cursor:pointer" onclick="togglePassword()">
+                        <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Enter password" required>
+                        <span class="input-group-text bg-white">
                             <i class="bi bi-eye-fill" id="eyeIcon"></i>
                         </span>
                     </div>
@@ -48,18 +48,6 @@
     </div>
 </div>
 
-<script>
-function togglePassword() {
-    const pass = document.getElementById('password');
-    const icon = document.getElementById('eyeIcon');
-    if (pass.type === 'password') {
-        pass.type = 'text';
-        icon.classList.replace('bi-eye-fill', 'bi-eye-slash-fill');
-    } else {
-        pass.type = 'password';
-        icon.classList.replace('bi-eye-slash-fill', 'bi-eye-fill');
-    }
-}
-</script>
+
 
 <?= $this->endSection() ?>

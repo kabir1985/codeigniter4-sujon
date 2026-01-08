@@ -5,10 +5,10 @@
     <script src="<?php echo base_url('assets/js/homescreen-popup.js')?>"></script>
 
     <!-- bootstrap js -->
-    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js')?>" defer></script>
 
     <!-- template-setting js -->
     <script src="<?php echo base_url('assets/js/template-setting.js')?>"></script>
 
     <!-- script js -->
-    <script src="<?php echo base_url('assets/js/script.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/script.js')?>" defer></script>

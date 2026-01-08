@@ -6,5 +6,6 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/', 'Home::index');
-//$routes->get('/test1', 'Home::test');
+$routes->get('/', 'LoginController::index');
+$routes->post('login', 'LoginController::attemptLogin');
+$routes->get('logout', 'LoginController::logout');
