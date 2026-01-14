@@ -14,43 +14,41 @@ class LoginController extends BaseController
 
     public function attemptLogin()
     {
-        $validation = \Config\Services::validation();
-
+       // Validation rules
         $rules = [
-            'user_name'    => 'required|valid_email',
+            'user_name'     => 'required|valid_email',
             'user_password' => 'required|min_length[6]',
         ];
 
-        // if (! $this->validate($rules)) {
-        //     return redirect()->back()->withInput()->with('errors', $validation->getErrors());
-        // }
+        if (! $this->validate($rules)) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', implode('<br>', $this->validator->getErrors()));
+        }
 
-        $user_name    = $this->request->getPost('user_name');
+        $user_name     = $this->request->getPost('user_name');
         $user_password = $this->request->getPost('user_password');
 
         echo $user_name;
-        exit('sdfdsfdsfdsfs');
-
+        exit();
 
         $userModel = new UserModel();
-        $row = $userModel->where('user_name', $user_name)->first();
+        $user = $userModel->where('user_name', $user_name)->first();
 
-        if (! $row) {
-            return redirect()->back()->with('error', 'Invalid email or password');
+        if (! $user || ! password_verify($user_password, $user['user_password'])) {
+            return redirect()->back()->withInput()->with('error', 'Invalid email or password');
         }
 
-        if (! password_verify($user_password, $row['user_password'])) {
-            return redirect()->back()->with('error', 'Invalid email or password');
-        }
-
+        // Set session
         session()->set([
-            'user_id'   => $row['id'],
-            'user_name' => $row['name'],
-            'user_email'=> $row['email'],
-            'logged_in' => true,
+            'user_id'    => $user['id'],
+            'user_name'  => $user['user_name'],
+            'user_email' => $user['user_email'] ?? $user['user_name'],
+            'logged_in'  => true,
         ]);
 
         return redirect()->to('/dashboard')->with('success', 'Login successful');
+
     }
 
     public function logout()

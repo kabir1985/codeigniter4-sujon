@@ -7,7 +7,7 @@
 
             <h4 class="text-center mb-4 fw-bold">Login</h4>
 
-            <?php if (session()->getFlashdata('error')) : ?>
+            <?php  if (session()->getFlashdata('error')) : ?>
                 <div class="alert alert-danger">
                     <?= session()->getFlashdata('error') ?>
                 </div>
