@@ -1,7 +1,7 @@
 <!-- Header -->
 <?= view('partials/header') ?>
 
-<body>
+
 
     <!-- Main Content -->
     <main>
@@ -11,6 +11,4 @@
     <!-- Footer -->
 <?= view('partials/footer') ?>
 
-</body>
 
-</html>

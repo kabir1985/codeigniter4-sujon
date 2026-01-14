@@ -21,9 +21,9 @@ class LoginController extends BaseController
             'user_password' => 'required|min_length[6]',
         ];
 
-        if (! $this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
-        }
+        // if (! $this->validate($rules)) {
+        //     return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        // }
 
         $user_name    = $this->request->getPost('user_name');
         $user_password = $this->request->getPost('user_password');

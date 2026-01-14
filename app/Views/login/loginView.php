@@ -1,5 +1,4 @@
 <?= $this->extend('layouts/main') ?>
-
 <?= $this->section('content') ?>
 
 <div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
@@ -14,14 +13,14 @@
                 </div>
             <?php endif; ?>
 
-            <form action="<?= site_url('login') ?>" method="post">
+            <form action="<?= base_url('login') ?>" method="post">
                 <?= csrf_field() ?>
 
                 <div class="mb-3">
                     <label class="form-label">User Name</label>
                     <div class="input-group">
                         <span class="input-group-text bg-white">
-                            <i class="bi bi-envelope-fill"></i>
+                            📧
                         </span>
                         <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter your email" required>
                     </div>
@@ -31,11 +30,11 @@
                     <label class="form-label">Password</label>
                     <div class="input-group">
                         <span class="input-group-text bg-white">
-                            <i class="bi bi-lock-fill"></i>
+                            🔒
                         </span>
                         <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Enter password" required>
-                        <span class="input-group-text bg-white">
-                            <i class="bi bi-eye-fill" id="eyeIcon"></i>
+                        <span class="input-group-text bg-white" role="button" id="togglePassword">
+                            👁️
                         </span>
                     </div>
                 </div>
@@ -48,6 +47,18 @@
     </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('togglePassword');
+    const password = document.getElementById('user_password');
 
+    if (toggle && password) {
+        toggle.addEventListener('click', function () {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+        });
+    }
+});
+</script>
 
 <?= $this->endSection() ?>

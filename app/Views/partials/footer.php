@@ -1,14 +1,5 @@
-  <!-- iconsax js -->
-    <script src="<?php echo base_url('assets/js/iconsax.js') ?>"></script>
+<!-- Bootstrap 5 CDN JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
-    <!-- homescreen-popup js -->
-    <script src="<?php echo base_url('assets/js/homescreen-popup.js')?>"></script>
-
-    <!-- bootstrap js -->
-    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js')?>" defer></script>
-
-    <!-- template-setting js -->
-    <script src="<?php echo base_url('assets/js/template-setting.js')?>"></script>
-
-    <!-- script js -->
-    <script src="<?php echo base_url('assets/js/script.js')?>" defer></script>
+</html>
